@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Committees | ELC MUN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <nav>
+    <a class="logo" href="index.html">ELC MUN</a>
+    <ul>
+      <li><a href="committees.html">Committees</a></li>
+      <li><a href="support-desk.html">Support Desk</a></li>
+      <li><a href="announcements.html">Announcements</a></li>
+      <li><a href="posts.html">Posts</a></li>
+      <li><a href="oc-applications.html">OC Applications</a></li>
+      <li><a href="register.html">Register</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Committees</h1>
+    <div class="card">
+      <h2>UNSC</h2>
+      <p>Reveal in: <span class="countdown" data-date="2025-07-20T10:00:00Z"></span></p>
+    </div>
+    <div class="card">
+      <h2>UNGA</h2>
+      <p>Reveal in: <span class="countdown" data-date="2025-07-22T12:00:00Z"></span></p>
+    </div>
+    <!-- Add more committees as needed -->
+  </div>
+  <script>
+    // Countdown logic
+    function updateCountdowns() {
+      document.querySelectorAll('.countdown').forEach(span => {
+        const target = new Date(span.dataset.date);
+        const diff = target - new Date();
+        if (diff > 0) {
+          const d = Math.floor(diff/86400000);
+          const h = Math.floor((diff%86400000)/3600000);
+          const m = Math.floor((diff%3600000)/60000);
+          const s = Math.floor((diff%60000)/1000);
+          span.textContent = `${d}d ${h}h ${m}m ${s}s`;
+        } else {
+          span.textContent = "Revealed!";
+        }
+      });
+    }
+    setInterval(updateCountdowns, 1000);
+    updateCountdowns();
+  </script>
+</body>
+</html>
